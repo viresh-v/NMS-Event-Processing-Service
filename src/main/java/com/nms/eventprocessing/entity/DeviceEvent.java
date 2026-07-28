@@ -1,11 +1,9 @@
 package com.nms.eventprocessing.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "device_events")
@@ -30,10 +28,11 @@ public class DeviceEvent {
     @Column(name = "active_connections", nullable = false)
     private Integer activeConnections;
 
-    @Column(name = "timestamp", nullable = false, length = 50)
-    private String timestamp;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "timestamp")
+    private LocalDateTime timestamp;
 
-    protected DeviceEvent() {
+    public DeviceEvent() {
     }
 
     public DeviceEvent(
@@ -42,7 +41,7 @@ public class DeviceEvent {
             Double cpuUsage,
             Double memoryUsage,
             Integer activeConnections,
-            String timestamp) {
+            LocalDateTime timestamp) {
 
         this.deviceId = deviceId;
         this.ipAddress = ipAddress;
@@ -76,7 +75,35 @@ public class DeviceEvent {
         return activeConnections;
     }
 
-    public String getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public void setCpuUsage(Double cpuUsage) {
+        this.cpuUsage = cpuUsage;
+    }
+
+    public void setMemoryUsage(Double memoryUsage) {
+        this.memoryUsage = memoryUsage;
+    }
+
+    public void setActiveConnections(Integer activeConnections) {
+        this.activeConnections = activeConnections;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 }
