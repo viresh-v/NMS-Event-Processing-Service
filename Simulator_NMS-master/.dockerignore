@@ -1,0 +1,15 @@
+target/*.original
+
+.idea
+
+.git
+
+.gitignore
+
+README.md
+
+*.iml
+
+logs
+
+target/test-classes
