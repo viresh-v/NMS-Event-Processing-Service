@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.nms.eventprocessing.service.EventProcessingServiceTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.621 s -- in com.nms.eventprocessing.service.EventProcessingServiceTest
